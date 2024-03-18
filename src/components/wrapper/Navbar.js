@@ -1,5 +1,5 @@
 import React from 'react';
-import BurgerMenu from './partials/BurgerMenu';
+import BurgerMenu from '../BurgerMenu';
 
 const Navbar = () => {
   return (

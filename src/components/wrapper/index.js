@@ -6,7 +6,6 @@ const index = ({children}) => {
     <div className=" bg-gray-400 w-screen h-screen flex flex-col">
           <Navbar></Navbar>
           <div className="h-full">{children}</div>
-          <Navbar></Navbar>
     </div>
   );
 };
