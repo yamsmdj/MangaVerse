@@ -1,11 +1,50 @@
-import React from 'react';
-import BurgerMenu from '../BurgerMenu';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import BurgerMenu from "../BurgerMenu";
+import Login from "../../assets/login.svg";
+import Search from "../../assets/search.svg";
+import Shop from "../../assets/shop.svg";
+import Logo from "../../logo.svg";
 
 const Navbar = () => {
   return (
     <div>
-      <BurgerMenu />
-      {/* Autres éléments de votre Navbar */}
+      <nav className=" bg-bleuDark w-full h-16" id="ancre-up">
+        <div className="flex justify-around h-full items-center text-white">
+          <div className="">
+            <NavLink to="/">
+              <img src={Logo} alt="logo" />
+            </NavLink>
+          </div>
+          <div className="w-96">
+            <ul className="hidden md:flex w-full justify-between">
+              <NavLink to="/">
+                <li className="bg-lavande p-5">Accueil</li>
+              </NavLink>
+              <NavLink to="/produits">
+                <li className="bg-lavande p-5">Catalogue</li>
+              </NavLink>
+              <NavLink to="/contact">
+                <li className="bg-lavande p-5">Contact</li>
+              </NavLink>
+            </ul>
+          </div>
+          <div className="hidden md:flex w-32 justify-between size-6">
+            <NavLink to="/" className="svg-container">
+              <img src={Search} alt="loupe" />
+            </NavLink>
+            <NavLink to="/" className="svg-container">
+              <img src={Shop} alt="boutique" />
+            </NavLink>
+            <NavLink to="/" className="svg-container">
+              <img src={Login} alt="connexion" />
+            </NavLink>
+          </div>
+          <div className="hamburger sm:hidden">
+            <BurgerMenu></BurgerMenu>
+          </div>
+        </div>
+      </nav>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Produits from "./components/pages/Produits";
 import Wrapper from "./components/wrapper";
 import Contact from "./components/pages/Contact";
 
+
 function App() {
   return (
     <BrowserRouter>
