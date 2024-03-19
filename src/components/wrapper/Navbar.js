@@ -4,7 +4,7 @@ import BurgerMenu from "../BurgerMenu";
 import Login from "../../assets/login.svg";
 import Search from "../../assets/search.svg";
 import Shop from "../../assets/shop.svg";
-import Logo from "../../logo.svg";
+import Logo from "../../assets/Logo.svg";
 
 const Navbar = () => {
   return (
@@ -12,12 +12,13 @@ const Navbar = () => {
       <nav className=" bg-bleuDark w-full h-16" id="ancre-up">
         <div className="flex justify-around h-full items-center text-white">
           <div className="">
-            <NavLink to="/">
-              <img src={Logo} alt="logo" />
+            <NavLink to="/" className="flex items-center">
+              <img className="w-16 h-16 ml-5 " src={Logo} alt="logo" />
+              <p>MangasVerse</p>
             </NavLink>
           </div>
           <div className="w-96">
-            <ul className="hidden md:flex w-full justify-between">
+            <ul className="hidden sm:flex w-full justify-between">
               <NavLink to="/">
                 <li className="bg-lavande p-5">Accueil</li>
               </NavLink>
@@ -29,7 +30,7 @@ const Navbar = () => {
               </NavLink>
             </ul>
           </div>
-          <div className="hidden md:flex w-32 justify-between size-6">
+          <div className="hidden sm:flex w-32 justify-between size-6">
             <NavLink to="/" className="svg-container">
               <img src={Search} alt="loupe" />
             </NavLink>

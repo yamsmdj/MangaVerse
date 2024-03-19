@@ -9,12 +9,28 @@ const BurgerMenu = () => {
   };
 
   return (
-    <div className="sm:hidden burger-menu">
+    <div className="sm:hidden burger-menu  mr-5">
       <button
-        className={`burger-icon ${isOpen ? "open" : ""} flex flex-col justify-between h-6 w-8`} onClick={toggleMenu}>
-        <span className={`bg-white h-1 w-full transition-all duration-300 transform ${isOpen ? "rotate-45 translate-y-2" : ""}`}></span>
-        <span className={`bg-white h-1 w-full transition-all duration-300 transform ${isOpen ? "opacity-0" : ""}`}></span>
-        <span className={`bg-white h-1 w-full transition-all duration-300 transform ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
+        className={`burger-icon ${
+          isOpen ? "open" : ""
+        } flex flex-col justify-between h-6 w-8`}
+        onClick={toggleMenu}
+      >
+        <span
+          className={`bg-white h-1 w-full transition-all duration-300 transform ${
+            isOpen ? "rotate-45 translate-y-2" : ""
+          }`}
+        ></span>
+        <span
+          className={`bg-white h-1 w-full transition-all duration-300 transform ${
+            isOpen ? "opacity-0" : ""
+          }`}
+        ></span>
+        <span
+          className={`bg-white h-1 w-full transition-all duration-300 transform ${
+            isOpen ? "-rotate-45 -translate-y-2" : ""
+          }`}
+        ></span>
       </button>
       {isOpen && (
         <div className="menu-items flex flex-col absolute top-16 right-2 border rounded  p-3 gap-2 bg-white">
@@ -34,4 +50,3 @@ const BurgerMenu = () => {
 };
 
 export default BurgerMenu;
-

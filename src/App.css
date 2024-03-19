@@ -3,9 +3,9 @@
    padding: 0;
    box-sizing: border-box;
    font-family: 'Poppins', sans-serif;
+   /* border: 1px solid red; */
  }
 .menu-items {
-
   border-radius: 5px;
 }  
 .menu-items a {
@@ -13,20 +13,29 @@
   text-decoration: none;
 }
 
-  .bg-bleuDark {
-    background-color: rgb(6, 1, 38);
-  }
+.bg-bleuDark {
+  background-color: rgb(6, 1, 38);
+}
 
-  .bg-lavande:hover {
-    background-color: rgb(118, 99, 242);
-    height: 100%;
-  }
+.bg-lavande:hover {
+  background-color: rgb(118, 99, 242);
+  height: 100%;
+}
 
-  .hovertext-lavande:hover {
-    color: rgb(118, 99, 242);
-  }
+.hovertext-lavande:hover {
+  color: rgb(118, 99, 242);
+}
+.cielText{
+  color: rgb(157,220,249);
+}
 
-  .svg-container:hover img {
-    filter: brightness(0) saturate(100%) invert(44%) sepia(87%) saturate(3665%) hue-rotate(230deg) brightness(99%) contrast(92%);
-  }
+.svg-container:hover img {
+  filter: brightness(0) saturate(100%) invert(44%) sepia(87%) saturate(3665%) hue-rotate(230deg) brightness(99%) contrast(92%);
+}
+.fontArial{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
   

@@ -2,9 +2,10 @@ import Formulaire from "../Formulaire";
 
 const Contact = () => {
   return (
-    <div>
-      <h1>Formulaire de Contact</h1>
-      <Formulaire></Formulaire>
+    <div className="bg-bgTest bg-no-repeat bg-cover bg-center h-screen">
+      <div className="text-center py-4">
+        <Formulaire />
+      </div>
     </div>
   );
 };

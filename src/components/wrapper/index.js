@@ -1,11 +1,15 @@
 import React from "react";
-import Navbar from "./Header";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-const index = ({children}) => {
+
+
+const index = ({ children }) => {
   return (
-    <div className=" bg-gray-400 w-screen h-screen flex flex-col">
-          <Navbar></Navbar>
-          <div className="h-full">{children}</div>
+    <div className="flex flex-col">
+      <Navbar />
+      <div className="h-full">{children}</div>
+      <Footer />
     </div>
   );
 };

@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        bgTest: "url('/src/assets/img/background/itadori.webp')",
+        bgAccueil: "url('/src/assets/img/background/bgAccueil.png')"
+      },
+    },
+    plugins: [],
   },
-  plugins: [],
 };
