@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 
 const Carousel = ({ images }) => {
   // State pour suivre l'index de la diapositive actuelle
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   // Fonction pour passer à la diapositive suivante
   const nextSlide = () => {
@@ -10,6 +12,14 @@ const Carousel = ({ images }) => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 3 ? 0 : prevIndex + 1));
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   // Fonction pour passer à la diapositive précédente
   const prevSlide = () => {
     // Si nous sommes à la première diapositive, allons à la dernière
@@ -24,7 +34,7 @@ const Carousel = ({ images }) => {
           {/* Flexbox pour espacer les images */}
           <div className="flex justify-around">
             {/* Afficher seulement les 3 images actuellement visibles */}
-            {images.slice(currentIndex, currentIndex + 3).map((image, index) => (
+            {images.slice(currentIndex, currentIndex + (isLargeScreen ? 3 : 1)).map((image, index) => (
               <div
                 key={index}
                 className={`w-full h-full flex justify-center items-center transition-opacity duration-500`}
