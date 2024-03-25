@@ -1,12 +1,16 @@
 import React from "react";
-import Logo from '../assets/Logo.svg'
+import Logo from "../assets/Logo.svg";
+import { useForm } from "react-hook-form";
 
-const Formulaire = () => {
+const Form = () => {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
+
   return (
-    <div className="p-8">
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="w-3/4 mx-auto bg-gray-700 rounded-lg ">
         <div className=" flex flex-col items-center">
-          <img src={Logo} alt="" className="w-16 h-16 ml-5 mt-5"/>
+          <img src={Logo} alt="" className="w-16 h-16 ml-5 mt-5" />
           <h2 className="text-2xl">Formulaire de contact</h2>
         </div>
         <div className="md:flex ">
@@ -14,9 +18,10 @@ const Formulaire = () => {
             <div className="flex my-2">
               <div className=" w-1/2 pr-2">
                 <input
-                  type="text"
-                  id="nom"
-                  name="nom"
+                  type="name"
+                  {...register("name")}
+                  id="name"
+                  name="name"
                   placeholder="Nom"
                   className=" py-3 text-center w-full bg-gray-800 rounded  text-gray-100  "
                 />
@@ -24,6 +29,7 @@ const Formulaire = () => {
               <div className=" w-1/2 pl-2">
                 <input
                   type="text"
+                  {...register("prenom")}
                   id="prenom"
                   name="prenom"
                   placeholder="Prenom"
@@ -34,6 +40,7 @@ const Formulaire = () => {
             <div className="">
               <input
                 type="email"
+                {...register("email")}
                 id="email"
                 name="email"
                 placeholder="Email"
@@ -43,6 +50,7 @@ const Formulaire = () => {
             <div className=" mt-4">
               <input
                 type="tel"
+                {...register("telephone")}
                 id="telephone"
                 name="telephone"
                 placeholder="Telephone"
@@ -51,7 +59,8 @@ const Formulaire = () => {
             </div>
             <div className=" mt-4">
               <input
-                type="text"
+                type="sujet"
+                {...register("sujet")}
                 id="sujet"
                 name="sujet"
                 placeholder="Sujet"
@@ -63,6 +72,7 @@ const Formulaire = () => {
             <div className="">
               <textarea
                 id="message"
+                {...register("message")}
                 name="message"
                 placeholder="Message"
                 className=" text-center w-full bg-gray-800 rounded  h-64 text-gray-100 py-1 px-3 "
@@ -83,35 +93,8 @@ const Formulaire = () => {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
-export default Formulaire;
-
-/* 
-<form>
-  <div className="flex flex-col justify-center">
-    <div className="flex justify-center items-center">
-      <div className="mx-4">
-        <div className="my-2">
-          <input type="text" name="nom" placeholder="Nom" />
-          <input type="text" name="prenom" placeholder="Prenom" />
-        </div>
-        <div className="">
-          <input type="email" name="email" placeholder="Email" />
-        </div>
-        <div className="my-2">
-          <input type="text" name="telephone" placeholder="Telephone" />
-        </div>
-      </div>
-      <div className="">
-        <input type="text" name="objet" className="py-10" placeholder="objet" />
-      </div>
-    </div>
-    <div className="">
-      <button type="submit" className=" bg-blue-500 rounded p-2">Envoyer</button>
-    </div>
-  </div>
-</form> 
-*/
+export default Form;

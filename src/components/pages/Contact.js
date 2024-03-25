@@ -1,4 +1,4 @@
-import Formulaire from "../Formulaire";
+import Formulaire from "../Form";
 
 const Contact = () => {
   return (

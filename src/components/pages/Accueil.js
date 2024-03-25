@@ -23,13 +23,13 @@ const Accueil = () => {
         </div> */}
       </div>
 
-      <div className="flex w-1/2 m-auto  py-16">
+      <div className="flex lg:w-1/2 m-auto flex-wrap lg:flex-nowrap py-16">
         <div className="bg-white text-white bg-opacity-10 p-6">
           <p>
             Depuis 2009, nous vous proposons
             <strong>
               d'acheter des mangas d'occasions ou de vendre les votres sur
-              MangasVerse.
+              MangasVerse. 
             </strong>
             Venez découvrir ou retrouver des milliers de mangas d'occasions en
             très bon état et aux meilleurs prix (réduction pouvant aller jusqu'à
@@ -59,7 +59,10 @@ const Accueil = () => {
           </ul>
         </div>
       </div>
-      <div className="bg-bgAccueil flex justify-evenly p-8">
+      <div className="bg-bgAccueil flex  flex-col justify-center  items-center p-8">
+        <h1 className=" cielText font-black text-3xl text-center py-8">
+          Commencer une nouvelle serie
+        </h1>
         <Carousel images={images} />
       </div>
     </div>

@@ -20,6 +20,8 @@ const Carousel = ({ images }) => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  
   // Fonction pour passer à la diapositive précédente
   const prevSlide = () => {
     // Si nous sommes à la première diapositive, allons à la dernière
