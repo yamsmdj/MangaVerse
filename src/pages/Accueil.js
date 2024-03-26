@@ -1,14 +1,8 @@
 import Card from "../components/Card";
 import Carousel from "../components/Carousel";
-import OpT1 from "../assets/img/manga/OnePiece/Op-T1.jpg";
-import OpT2 from "../assets/img/manga/OnePiece/Op-T2.jpg";
-import OpT3 from "../assets/img/manga/OnePiece/Op-T3.jpg";
-import OpT4 from "../assets/img/manga/OnePiece/Op-T4.jpg";
-import OpT5 from "../assets/img/manga/OnePiece/Op-T5.jpg";
-import OpT6 from "../assets/img/manga/OnePiece/Op-T6.jpg";
+
 
 const Accueil = () => {
-  const images = [OpT1, OpT2, OpT3, OpT4, OpT5, OpT6];
   return (
     <div className="bg-bleuDark">
       <div className=" bg-bgAccueil bg-no-repeat bg-cover bg-center">
@@ -16,7 +10,7 @@ const Accueil = () => {
           Commencer une nouvelle serie
         </h1>
         <div className="flex justify-evenly p-8">
-          <Carousel images={images} />
+          <Carousel />
         </div>
         <div className="lg:hidden">
           <Card />
@@ -63,7 +57,7 @@ const Accueil = () => {
         <h1 className=" cielText font-black text-3xl text-center py-8">
           Commencer une nouvelle serie
         </h1>
-        <Carousel images={images} />
+        <Carousel />
       </div>
     </div>
   );

@@ -1,19 +1,22 @@
-// import React, { useState } from 'react';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-// const CardProduit = ({produits}) => {
-//   return (
-//       console.log("PRODUIT RECU:" , produits);
-//     <div>
-//       {produits.map((produit) => (
-//         <div key={produit.id}>
-//           <img src={produit.picture} alt={produit.name} />
-//           <strong>{produit.name}</strong>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default CardProduit;
-
-
+const CardProduit = ({ oeuvre }) => {
+  return (
+    <div className="w-52">
+      <NavLink to="/monproduit">
+        <img
+          src={`img/manga/${oeuvre.name.replace(/\s+/g, "").toLowerCase()}/${
+            oeuvre.picture
+          }`}
+          alt={oeuvre.name}
+          className=" h-52"
+        />{" "}
+      </NavLink>
+      <p>
+        <strong>{oeuvre.name}</strong>
+      </p>
+    </div>
+  );
+};
+export default CardProduit;

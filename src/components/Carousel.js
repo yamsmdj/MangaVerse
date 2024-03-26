@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from "react";
 
-
-const Carousel = ({ images }) => {
+const Carousel = () => {
   // State pour suivre l'index de la diapositive actuelle
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
+  const images = [
+    "img/manga/OnePiece/Op-T1.jpg",
+    "img/manga/OnePiece/Op-T2.jpg",
+    "img/manga/OnePiece/Op-T3.jpg",
+    "img/manga/OnePiece/Op-T4.jpg",
+    "img/manga/OnePiece/Op-T5.jpg",
+    "img/manga/OnePiece/Op-T6.jpg",
+  ];
+
   // Fonction pour passer à la diapositive suivante
   const nextSlide = () => {
     // Si nous sommes à la dernière diapositive, revenons à la première
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 3 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 3 ? 0 : prevIndex + 1
+    );
   };
 
   useEffect(() => {
@@ -21,11 +31,12 @@ const Carousel = ({ images }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  
   // Fonction pour passer à la diapositive précédente
   const prevSlide = () => {
     // Si nous sommes à la première diapositive, allons à la dernière
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 3 : prevIndex - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 3 : prevIndex - 1
+    );
   };
 
   return (
@@ -36,15 +47,21 @@ const Carousel = ({ images }) => {
           {/* Flexbox pour espacer les images */}
           <div className="flex justify-around">
             {/* Afficher seulement les 3 images actuellement visibles */}
-            {images.slice(currentIndex, currentIndex + (isLargeScreen ? 3 : 1)).map((image, index) => (
-              <div
-                key={index}
-                className={`w-full h-full flex justify-center items-center transition-opacity duration-500`}
-              >
-                {/* Affichage de l'image */}
-                <img src={image} alt={`Slide ${index + currentIndex + 1}`} className="object-cover w-48 h-full" />
-              </div>
-            ))}
+            {images
+              .slice(currentIndex, currentIndex + (isLargeScreen ? 3 : 1))
+              .map((image, index) => (
+                <div
+                  key={index}
+                  className={`w-full h-full flex justify-center items-center transition-opacity duration-500`}
+                >
+                  {/* Affichage de l'image */}
+                  <img
+                    src={image}
+                    alt={`Slide ${index + currentIndex + 1}`}
+                    className="object-cover w-48 h-full"
+                  />
+                </div>
+              ))}
           </div>
         </div>
       </div>
