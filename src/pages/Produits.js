@@ -27,7 +27,8 @@ const Produits = () => {
       <h1>Produits</h1>
       <div className="flex ">
         {oeuvres ?
-          oeuvres.map((oeuvre, index) => <CardProduit oeuvre={oeuvre} key={index} />)
+          oeuvres.map((oeuvre, index) =>
+            <CardProduit oeuvre={oeuvre} key={index} />)
          : (
           <p>Chargement en cours...</p>
         )}

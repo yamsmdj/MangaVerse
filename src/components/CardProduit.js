@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const CardProduit = ({ oeuvre }) => {
   return (
     <div className="w-52">
-      <NavLink to="/monproduit">
+      <NavLink to={`/monproduit/${oeuvre.id}`}>
         <img
           src={`img/manga/${oeuvre.name.replace(/\s+/g, "").toLowerCase()}/${
             oeuvre.picture
