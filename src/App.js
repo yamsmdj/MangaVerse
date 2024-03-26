@@ -1,11 +1,9 @@
-
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Accueil from "./components/pages/Accueil";
-import Produits from "./components/pages/Produits";
+import Accueil from "./pages/Accueil";
+import Produits from "./pages/Produit";
 import Wrapper from "./components/wrapper";
-import Contact from "./components/pages/Contact";
-
+import Contact from "./pages/Contact";
 
 function App() {
   return (

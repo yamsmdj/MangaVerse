@@ -1,11 +1,11 @@
-import Card from "../Card";
-import Carousel from "../Carousel";
-import OpT1 from "../../assets/img/manga/OnePiece/Op-T1.jpg";
-import OpT2 from "../../assets/img/manga/OnePiece/Op-T2.jpg";
-import OpT3 from "../../assets/img/manga/OnePiece/Op-T3.jpg";
-import OpT4 from "../../assets/img/manga/OnePiece/Op-T4.jpg";
-import OpT5 from "../../assets/img/manga/OnePiece/Op-T5.jpg";
-import OpT6 from "../../assets/img/manga/OnePiece/Op-T6.jpg";
+import Card from "../components/Card";
+import Carousel from "../components/Carousel";
+import OpT1 from "../assets/img/manga/OnePiece/Op-T1.jpg";
+import OpT2 from "../assets/img/manga/OnePiece/Op-T2.jpg";
+import OpT3 from "../assets/img/manga/OnePiece/Op-T3.jpg";
+import OpT4 from "../assets/img/manga/OnePiece/Op-T4.jpg";
+import OpT5 from "../assets/img/manga/OnePiece/Op-T5.jpg";
+import OpT6 from "../assets/img/manga/OnePiece/Op-T6.jpg";
 
 const Accueil = () => {
   const images = [OpT1, OpT2, OpT3, OpT4, OpT5, OpT6];
@@ -18,9 +18,9 @@ const Accueil = () => {
         <div className="flex justify-evenly p-8">
           <Carousel images={images} />
         </div>
-        {/* <div className="lg:hidden">
+        <div className="lg:hidden">
           <Card />
-        </div> */}
+        </div>
       </div>
 
       <div className="flex lg:w-1/2 m-auto flex-wrap lg:flex-nowrap py-16">
@@ -29,7 +29,7 @@ const Accueil = () => {
             Depuis 2009, nous vous proposons
             <strong>
               d'acheter des mangas d'occasions ou de vendre les votres sur
-              MangasVerse. 
+              MangasVerse.
             </strong>
             Venez découvrir ou retrouver des milliers de mangas d'occasions en
             très bon état et aux meilleurs prix (réduction pouvant aller jusqu'à
