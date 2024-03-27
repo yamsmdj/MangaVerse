@@ -1,17 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Product from "../components/product";
+import { useParams } from "react-router-dom";
 
 const MonProduit = () => {
-  const [product, setProduct] = useState([]);
+  const [products, setProduct] = useState([]);
+  const { id } = useParams();
+  const filterProduct = products.filter(product => product.oeuvre?.id === parseInt(id))
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/products/1")
+      .get(`http://localhost:8000/api/products`)
       .then((res) => {
         setProduct(res.data);
-    // setProduits(res.data["hydra:member"]);
-    console.log(res);
+        console.log(res.data);
+        // setProduits(res.data["hydra:member"]);
       })
       .catch((error) => {
         console.error(
@@ -21,14 +24,18 @@ const MonProduit = () => {
       });
   }, []);
 
-    return (
-      <div>
-        <h1>Voici le produit </h1>
-        <div className="flex">
-            <Product product={product} />
-        </div>
+
+  return (
+    <div className="bg-bleuDark text-white">
+      <h1>{products.name}</h1>
+      {/* <pre>{JSON.stringify(product, null, 2)}</pre> */}
+      <div className="flex flex-wrap w-1/2 m-auto gap-9 ">
+        {products.map((product, index) => (
+          <Product product={product} key={index} />
+        ))}
       </div>
-    );
+    </div>
+  );
 };
 
 export default MonProduit;

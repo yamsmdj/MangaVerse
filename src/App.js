@@ -5,6 +5,7 @@ import Produits from "./pages/Produits";
 import Wrapper from "./components/wrapper";
 import Contact from "./pages/Contact";
 import MonProduit from "./pages/MonProduit";
+import Connexion from "./pages/Connexion";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/produits" element={<Produits />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/monproduit/:id" element={<MonProduit/>}></Route>
+          <Route path="/connexion" element={<Connexion/>}></Route>
           <Route path="*" element={<Accueil />} />
         </Routes>
       </Wrapper>

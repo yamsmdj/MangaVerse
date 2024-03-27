@@ -23,13 +23,14 @@ const Produits = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-bleuDark py-52">
       <h1>Produits</h1>
       <div className="flex ">
-        {oeuvres ?
-          oeuvres.map((oeuvre, index) =>
-            <CardProduit oeuvre={oeuvre} key={index} />)
-         : (
+        {oeuvres ? (
+          oeuvres.map((oeuvre, index) => (
+            <CardProduit oeuvre={oeuvre} key={index} />
+          ))
+        ) : (
           <p>Chargement en cours...</p>
         )}
       </div>
