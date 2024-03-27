@@ -18,6 +18,10 @@
  .bg-bleuDark {
    background-color: rgb(6, 1, 38);
  }
+ .bg-bleuDark-opacitiy {
+   background-color: rgb(6, 1, 38);
+   opacity: 60;
+    }
 
  .bg-nav {
    background-color: rgb(7, 7, 32);
