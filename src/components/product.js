@@ -19,3 +19,4 @@ const product = ({ product }) => {
   );
 };
 export default product;
+
