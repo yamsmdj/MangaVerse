@@ -9,7 +9,7 @@ import Logo from "../../assets/Logo.svg";
 const Navbar = () => {
   return (
     <div>
-      <nav className=" bg-bleuDark w-full h-16" id="ancre-up">
+      <nav className=" bg-nav w-full h-16" id="ancre-up">
         <div className="flex justify-around h-full items-center text-white">
           <div className="">
             <NavLink to="/" className="flex items-center">
