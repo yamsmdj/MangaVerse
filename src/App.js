@@ -6,7 +6,9 @@ import Wrapper from "./components/wrapper";
 import Contact from "./pages/Contact";
 import MonProduit from "./pages/MonProduit";
 import Connexion from "./pages/Connexion";
+import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/monproduit/:id" element={<MonProduit />}></Route>
           <Route path="/connexion" element={<Connexion />}></Route>
+          <Route path="/Register" element={<Register />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="*" element={<Accueil />} />
         </Routes>

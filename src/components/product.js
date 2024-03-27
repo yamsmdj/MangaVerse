@@ -3,7 +3,7 @@ import React from "react";
 const product = ({ product }) => {
   return (
     <div>
-      <div>
+      <div className="flex flex-col items-center justify-around my-4">
         <img
           src={`/img/manga/${product.oeuvres?.name.replace(/\s+/g, "").toLowerCase()}/${product.picture}`}
           alt={product.name}
