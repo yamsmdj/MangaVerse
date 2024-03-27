@@ -28,7 +28,7 @@ const MonProduit = () => {
   return (
     <div className="bg-bleuDark text-white">
       <h1>{products.name}</h1>
-      {/* <pre>{JSON.stringify(product, null, 2)}</pre> */}
+      {/* <pre>{JSON.stringify(products, null, 2)}</pre> */}
       <div className="flex flex-wrap w-1/2 m-auto gap-9 ">
         {products.map((product, index) => (
           <Product product={product} key={index} />
