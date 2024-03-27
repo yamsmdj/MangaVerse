@@ -6,6 +6,7 @@ import Wrapper from "./components/wrapper";
 import Contact from "./pages/Contact";
 import MonProduit from "./pages/MonProduit";
 import Connexion from "./pages/Connexion";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
           <Route path="/" element={<Accueil />} />
           <Route path="/produits" element={<Produits />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/monproduit/:id" element={<MonProduit/>}></Route>
-          <Route path="/connexion" element={<Connexion/>}></Route>
+          <Route path="/monproduit/:id" element={<MonProduit />}></Route>
+          <Route path="/connexion" element={<Connexion />}></Route>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="*" element={<Accueil />} />
         </Routes>
       </Wrapper>

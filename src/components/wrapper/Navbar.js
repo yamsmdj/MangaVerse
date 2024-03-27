@@ -34,7 +34,7 @@ const Navbar = () => {
             <NavLink to="/" className="svg-container">
               <img src={Search} alt="loupe" />
             </NavLink>
-            <NavLink to="/" className="svg-container">
+            <NavLink to="/dashboard" className="svg-container">
               <img src={Shop} alt="boutique" />
             </NavLink>
             <NavLink to="/connexion" className="svg-container">
