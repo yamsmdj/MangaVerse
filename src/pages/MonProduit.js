@@ -13,7 +13,7 @@ const MonProduit = () => {
       .get(`http://localhost:8000/api/products`)
       .then((res) => {
         setProduct(res.data);
-        // console.log(res.data);
+        // console.log("all :" , res.data);
         // setProduits(res.data["hydra:member"]);
       })
       .catch((error) => {
@@ -27,7 +27,8 @@ const MonProduit = () => {
   useEffect(() => {
     const filtered = products.filter((product) => product.oeuvres?.id === parseInt(id));
     setFilteredProducts(filtered);
-    console.log(filtered);
+    // console.log("filtre : " , filtered);
+    // console.log("all : ");
   }, [id, products]);
 
 
