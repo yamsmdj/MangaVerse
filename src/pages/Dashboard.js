@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Product from "../components/product";
 import PanelAdmin from "../components/PanelAdmin";
 
 
@@ -23,15 +22,28 @@ const Dashboard = () => {
     }, []);
 
     return (
-        // <div>
-        //     {products ?
-        //         products.map((product, index) => <Product product={product} key={index} />)
-        //         : (
-        //             <p>Chargement en cours...</p>
-        //         )}
-        // </div>
-        <div className=" w-full flex justify-center">
-            <PanelAdmin />
+        <div className=" w-full flex flex-col justify-center items-center bg-bleuDark">
+            <div className="w-full h-96 bg-bgAdmin bg-no-repeat bg-cover bg-center">
+                <h1>Produits</h1>
+            </div>
+            <div className=' bg-slate-600 w-1/2 flex flex-col justify-center items-center my-20'>
+                <div className=' bg-indigo-950 w-10/12 mt-20 mb-1 py-1'>
+                    <ul className=' list-none flex w-full justify-around text-white'>
+                        <li>Categorie</li>
+                        <li>Nom</li>
+                        <li>Type</li>
+                        <li>Note</li>
+                        <li>Prix</li>
+                        <li>Update</li>
+                        <li>Delete</li>
+                    </ul>
+                </div>
+                {products ?
+                    products.map((product, index) => <PanelAdmin product={product} key={index} />)
+                    : (
+                        <p>Chargement en cours...</p>
+                    )}
+            </div>
         </div>
     );
 };
