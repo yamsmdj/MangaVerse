@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Search from "../assets/search.svg";
+import Shop from "../assets/shop.svg";
+import Login from "../assets/login.svg";
+
 
 const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,17 +37,30 @@ const BurgerMenu = () => {
         ></span>
       </button>
       {isOpen && (
-        <div className="menu-items flex flex-col absolute top-16 right-2 border rounded  p-3 gap-2 bg-white">
+        <div className=" text-white text-center absolute top-16 right-0 w-full  p-3 gap-2 bg-nav">
+          <ul>
           <NavLink to="/" exact activeClassName="active" onClick={toggleMenu}>
-            Accueil
+           <li className="bg-lavande">Accueil</li> 
           </NavLink>
           <NavLink to="/produits" activeClassName="active" onClick={toggleMenu}>
-            Produits
+            <li className="bg-lavande">Produits</li>
           </NavLink>
           <NavLink to="/contact" activeClassName="active" onClick={toggleMenu}>
-            Contact
+           <li className="bg-lavande">Contact</li>
           </NavLink>
-        </div>
+          <div className="flex justify-center gap-4 py-1">
+          <NavLink to="/" className="svg-container">
+             <li> <img src={Search} alt="loupe" /></li>
+            </NavLink>
+            <NavLink to="/dashboard" className="svg-container">
+             <li><img src={Shop} alt="boutique" /></li> 
+            </NavLink>
+            <NavLink to="/connexion" className="svg-container">
+            <li> <img src={Login} alt="connexion" /></li> 
+            </NavLink>
+            </div>
+          </ul>
+          </div>
       )}
     </div>
   );
