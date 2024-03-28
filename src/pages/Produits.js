@@ -22,7 +22,7 @@ const Produits = () => {
   }, []);
 
   return (
-    <div>
+    <div className="h-full bg-bleuDark">
       <div className="w-full bg-white flex justify-center ">
         <div className=" py-2">
           <input
@@ -34,7 +34,7 @@ const Produits = () => {
           <button className=" borderLavande rounded-md w-20">Genres</button>
         </div>
       </div>
-      <div className="w-full flex justify-center flex-row text-center text-white bg-bleuDark pt-10">
+      <div className="w-full flex justify-center flex-row text-center text-white pt-10">
         <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {oeuvres ? (
             oeuvres.map((oeuvre, index) => (
