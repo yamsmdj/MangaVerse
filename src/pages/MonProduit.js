@@ -34,10 +34,10 @@ const MonProduit = () => {
 
 
   return (
-    <div className="bg-bleuDark text-white">
+    <div className="bg-bleuDark text-white flex justify-center">
       <h1>{products.name}</h1>
       {/* <pre>{JSON.stringify(products, null, 2)}</pre> */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 py-7">
+      <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-7">
         {filteredProducts.map((product, index) => (
           <Product product={product} key={index} />
         ))}
