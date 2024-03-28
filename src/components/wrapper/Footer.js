@@ -4,7 +4,7 @@ import Logo from "../../assets/Logo.svg";
 const Footer = () => {
   return (
     <footer>
-      <nav class="bg-nav h-16 w-full">
+      <nav class="bg-nav h-16 w-full ">
         <div class="flex justify-around h-full items-center text-white">
           <div class="">
             <a href="/">

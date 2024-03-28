@@ -4,8 +4,8 @@ import Footer from "./Footer";
 
 const index = ({ children }) => {
   return (
-    <div className="flex flex-col justify-between ">
-      <div className="flex flex-col h-full">
+    <div className="flex flex-col justify-between h-screen">
+      <div className="flex flex-col ">
         <Navbar />
         {children}
       </div>
