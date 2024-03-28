@@ -65,7 +65,7 @@ const MonProduit = () => {
         <p>{selectedProduct ? selectedProduct?.oeuvres?.text: "description du produit non trouvé"}</p></p>
         </div>
       {/* <pre>{JSON.stringify(selectedProduct, null, 2)}</pre> */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 py-7">
+      <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-7">
         {filteredProducts.map((product, index) => (
           <Product product={product} key={index} />
         ))}

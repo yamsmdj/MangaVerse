@@ -2,7 +2,7 @@ import React from "react";
 
 const product = ({ product }) => {
   return (
-    <secion className="flex flex-col items-center justify-around my-4">
+    <section className="flex flex-col items-center justify-around my-4">
       <div>
         <img
           src={`/img/manga/${product.oeuvres?.name
@@ -23,7 +23,7 @@ const product = ({ product }) => {
         </div>
       </div>
       {/* <p> Crée le : {product.created_at}</p> */}
-    </secion>
+    </section>
   );
 };
 export default product;
