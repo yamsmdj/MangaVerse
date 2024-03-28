@@ -3,7 +3,7 @@ import FormInscription from "../components/forms/FormInscription";
 
 const register = () => {
   return (
-    <div className="bg-bgTest h-screen flex justify-center items-center">
+    <div className="bg-bgTest h-full flex justify-center items-center">
       <FormInscription />
     </div>
   );

@@ -1,10 +1,9 @@
 import Card from "../components/Card";
 import Carousel from "../components/Carousel";
 
-
 const Accueil = () => {
   return (
-    <div className=" bg-bleuDark ">
+    <div className="bg-bleuDark h-full">
       <div className=" bg-bgAccueil bg-no-repeat bg-cover bg-center">
         <h1 className="flex justify-center uppercase cielText font-black text-3xl text-center py-8">
           Commencer une nouvelle serie
