@@ -77,15 +77,15 @@ const MonProduit = () => {
           </p>
         </div>
       </div>
-      <div className=" flex  items-center m-auto gap-2 w-1/2 py-5">
+      <div className=" flex items-center m-auto gap-4 w-1/2 py-5">
         <p>
           {" "}
           Prix :
           {selectedProduct
-            ? selectedProduct.quantiter
+            ? selectedProduct.prix
             : "quantité du produit non trouvé"}
         </p>
-        <button className=" rounded px-3 text-black bg-orange-200">
+        <button className="py-1 rounded px-3 text-black bg-orange-200">
           Ajouter au panier
         </button>
       </div>
