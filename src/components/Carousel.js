@@ -6,12 +6,12 @@ const Carousel = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   const images = [
-    "img/manga/OnePiece/Op-T1.jpg",
-    "img/manga/OnePiece/Op-T2.jpg",
-    "img/manga/OnePiece/Op-T3.jpg",
-    "img/manga/OnePiece/Op-T4.jpg",
-    "img/manga/OnePiece/Op-T5.jpg",
-    "img/manga/OnePiece/Op-T6.jpg",
+    "/img/manga/onepiece/OpT1.jpg",
+    "/img/manga/onepiece/OpT2.jpg",
+    "/img/manga/onepiece/OpT3.jpg",
+    "/img/manga/onepiece/OpT4.jpg",
+    "/img/manga/onepiece/OpT5.jpg",
+    "/img/manga/onepiece/OpT6.jpg",
   ];
 
   // Fonction pour passer à la diapositive suivante

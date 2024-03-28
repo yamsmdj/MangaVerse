@@ -2,7 +2,7 @@ import React from "react";
 
 const product = ({ product }) => {
   return (
-    <section className="flex flex-col items-center justify-around my-4">
+    <section className="flex flex-col items-center justify-around my-4  text-center">
       <div>
         <img
           src={`/img/manga/${product.oeuvres?.name

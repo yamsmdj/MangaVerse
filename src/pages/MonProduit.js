@@ -41,34 +41,72 @@ const MonProduit = () => {
     <section className="bg-bleuDark text-white">
       <div className="flex w-1/2 m-auto ">
         <div className="">
-          <img src={`/img/manga/${selectedProduct?.oeuvres?.name.replace(/\s+/g,"")}/${selectedProduct?.picture}`} alt="One piece" className=" w-44"/>
+          <img
+            src={`/img/manga/${selectedProduct?.oeuvres?.name.replace(
+              /\s+/g,
+              ""
+            )}/${selectedProduct?.picture}`}
+            alt="One piece"
+            className=" w-44"
+          />
         </div>
         <div className="">
           <p>
-            {selectedProduct ? selectedProduct.oeuvres?.name: "Nom du produit non trouvé"}
+            {selectedProduct
+              ? selectedProduct.oeuvres?.name
+              : "Nom du produit non trouvé"}
           </p>
           <p>
-            {selectedProduct ? selectedProduct.type?.name: "type du produit non trouvé"}
+            {selectedProduct
+              ? selectedProduct.type?.name
+              : "type du produit non trouvé"}
           </p>
+          {/* <p>
+            {selectedProduct &&
+            selectedProduct.oeuvres &&
+            selectedProduct.oeuvres.genres &&
+            selectedProduct.oeuvres.genres.name ? 
+            selectedProduct.oeuvres.genres.name.map((genre, index) => (<span key={index}>{genre}</span>)):
+              "Genre du produit non trouvé"}
+          </p> */}
           <p>
-            En stock :{selectedProduct ? selectedProduct.quantiter: "quantité du produit non trouvé"}
+            En stock :
+            {selectedProduct
+              ? selectedProduct.quantiter
+              : "quantité du produit non trouvé"}
           </p>
         </div>
       </div>
       <div className=" flex  items-center m-auto gap-2 w-1/2 py-5">
-       <p> Prix :{selectedProduct ? selectedProduct.quantiter: "quantité du produit non trouvé"}</p>
-       <button className=" rounded px-3 text-black bg-orange-200">Ajouter au panier</button>
-       </div>
+        <p>
+          {" "}
+          Prix :
+          {selectedProduct
+            ? selectedProduct.quantiter
+            : "quantité du produit non trouvé"}
+        </p>
+        <button className=" rounded px-3 text-black bg-orange-200">
+          Ajouter au panier
+        </button>
+      </div>
 
-        <div className="w-1/2 m-auto border">
-        <p>Introduction de la serie : 
-        <p>{selectedProduct ? selectedProduct?.oeuvres?.text: "description du produit non trouvé"}</p></p>
-        </div>
+      <div className="sm:w-1/2 m-auto border">
+        <p>
+          Introduction de la serie :
+          <p>
+            {selectedProduct
+              ? selectedProduct?.oeuvres?.text
+              : "description du produit non trouvé"}
+          </p>
+        </p>
+      </div>
       {/* <pre>{JSON.stringify(selectedProduct, null, 2)}</pre> */}
-      <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-7">
-        {filteredProducts.map((product, index) => (
-          <Product product={product} key={index} />
-        ))}
+      <div className="flex justify-center">
+        <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-7">
+          {filteredProducts.map((product, index) => (
+            <Product product={product} key={index} />
+          ))}
+        </div>
       </div>
     </section>
   );
