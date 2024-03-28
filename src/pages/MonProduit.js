@@ -25,24 +25,52 @@ const MonProduit = () => {
   }, []);
 
   useEffect(() => {
-    const filtered = products.filter((product) => product.oeuvres?.id === parseInt(id));
+    const filtered = products.filter(
+      (product) => product.oeuvres?.id === parseInt(id)
+    );
     setFilteredProducts(filtered);
     // console.log("filtre : " , filtered);
     // console.log("all : ");
   }, [id, products]);
 
-
-
+  const selectedProduct = filteredProducts.find(
+    (product) => product.oeuvres?.id === parseInt(id)
+  );
+  console.log("ayaaa", selectedProduct);
   return (
-    <div className="bg-bleuDark text-white">
-      <h1>{products.name}</h1>
-      {/* <pre>{JSON.stringify(products, null, 2)}</pre> */}
+    <section className="bg-bleuDark text-white">
+      <div className="flex w-1/2 m-auto ">
+        <div className="">
+          <img src={`/img/manga/${selectedProduct?.oeuvres?.name.replace(/\s+/g,"")}/${selectedProduct?.picture}`} alt="One piece" className=" w-44"/>
+        </div>
+        <div className="">
+          <p>
+            {selectedProduct ? selectedProduct.oeuvres?.name: "Nom du produit non trouvé"}
+          </p>
+          <p>
+            {selectedProduct ? selectedProduct.type?.name: "type du produit non trouvé"}
+          </p>
+          <p>
+            En stock :{selectedProduct ? selectedProduct.quantiter: "quantité du produit non trouvé"}
+          </p>
+        </div>
+      </div>
+      <div className=" flex  items-center m-auto gap-2 w-1/2 py-5">
+       <p> Prix :{selectedProduct ? selectedProduct.quantiter: "quantité du produit non trouvé"}</p>
+       <button className=" rounded px-3 text-black bg-orange-200">Ajouter au panier</button>
+       </div>
+
+        <div className="w-1/2 m-auto border">
+        <p>Introduction de la serie : 
+        <p>{selectedProduct ? selectedProduct?.oeuvres?.text: "description du produit non trouvé"}</p></p>
+        </div>
+      {/* <pre>{JSON.stringify(selectedProduct, null, 2)}</pre> */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6 py-7">
         {filteredProducts.map((product, index) => (
           <Product product={product} key={index} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
