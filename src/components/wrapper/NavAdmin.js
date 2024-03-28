@@ -10,7 +10,7 @@ const NavAdmin = () => {
     };
 
     return (
-        <div className='flex w-1/12 bg-nav'>
+        <div className='flex w-1/6 bg-nav'>
             <div className="flex-grow h-5-100 flex flex-col justify-around">
                 <div>
                     <NavLink to="/" className="flex items-center flex-col text-white">
@@ -18,17 +18,17 @@ const NavAdmin = () => {
                         <p>MangasVerse</p>
                     </NavLink>
                 </div>
-                <div>
+                <div className=''>
                     <ul>
                         <li className='bg-lavande p-2'>
-                            <NavLink to="/" className="flex items-center flex-col text-white">
+                            <NavLink to="/" className="flex items-center flex-col text-white text-2xl">
                                 <p>Dashboard</p>
                             </NavLink>
                         </li>
                         <li className='bg-lavande p-2'>
                             <div onClick={toggleDropdown} className="flex items-center flex-col text-white cursor-pointer relative">
                                 <div className='flex flex-row'>
-                                    <NavLink to="/dashboard" className="flex items-center flex-row text-white">
+                                    <NavLink to="/dashboard" className="flex items-center flex-row text-white text-2xl">
                                         <p>Produits</p>
                                         <span className={`ml-1 transform ${showDropdown ? '0' : 'rotate-90'} transition duration-300 ease-in-out`}>&#9660;</span>
                                     </NavLink>

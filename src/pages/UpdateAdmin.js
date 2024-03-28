@@ -4,7 +4,7 @@ import PanelAdmin from "../components/PanelAdmin";
 import NavAdmin from "../components/wrapper/NavAdmin";
 
 const Dashboard = () => {
-    const [oeuvres, setProduct] = useState([]);
+    const [products, setProduct] = useState([]);
     useEffect(() => {
         axios
             .get(`http://localhost:8000/api/products`)

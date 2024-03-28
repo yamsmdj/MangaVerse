@@ -7,6 +7,7 @@ import OeuvresAdmin from "../components/OeuvresAdmin";
 const Dashboard = () => {
     const [products, setProducts] = useState([]);
     const [oeuvres, setOeuvres] = useState([]);
+    const [selectedOeuvre, setSelectedOeuvre] = useState(null);
 
     useEffect(() => {
         // Récupérer les produits
@@ -30,6 +31,19 @@ const Dashboard = () => {
             });
     }, []);
 
+    const handleSelectOeuvre = (oeuvre) => {
+        setSelectedOeuvre(oeuvre);
+    };
+
+    const filteredProducts = (() => {
+        if (selectedOeuvre) {
+            return products.filter((product) => product.oeuvres.id === selectedOeuvre.id);
+        }
+    })();
+
+
+
+
     return (
         <div className="w-full flex flex-row bg-bleuDark">
             <NavAdmin />
@@ -37,23 +51,22 @@ const Dashboard = () => {
                 <div className="w-full h-96 bg-bgAdmin bg-no-repeat bg-cover bg-center">
                     <h1 className="flex h-full justify-center items-center text-white">Produits</h1>
                 </div>
-                <div className="flex justify-around ">
+                <div className="flex justify-between w-10/12">
                     <div className="bg-white h-fit bg-opacity-10 w-1/5 flex flex-col my-20  items-center">
-                        <div className="bg-nav opacity-100 w-10/12 mt-10 mb-1 py-1 text-white text-center ">Oeuvres
-                        </div>
+                        <div className="bg-nav opacity-100 w-10/12 mt-10 mb-1 py-1 text-white text-center">Oeuvres</div>
                         <div className="w-full flex flex-col items-center mb-10">
                             {oeuvres ? (
                                 oeuvres.map((oeuvre, index) => (
-                                    <OeuvresAdmin oeuvre={oeuvre} key={index} />
+                                    <div key={index} onClick={() => handleSelectOeuvre(oeuvre)} className="cursor-pointer w-10/12">
+                                        <OeuvresAdmin oeuvre={oeuvre} />
+                                    </div>
                                 ))
                             ) : (
                                 <p>Chargement en cours...</p>
                             )}
-
                         </div>
-
                     </div>
-                    <div className="bg-white bg-opacity-10 w-2/3 flex flex-col justify-center items-center my-20 text-white">
+                    <div className="bg-white bg-opacity-10 w-3/4 flex flex-col justify-start items-center my-20 text-white">
                         <div className="bg-nav opacity-100 w-10/12 mt-10 mb-1 py-1">
                             <ul className="grid grid-cols-8 text-center">
                                 <li>Categorie</li>
@@ -66,12 +79,16 @@ const Dashboard = () => {
                                 <li>Delete</li>
                             </ul>
                         </div>
-                        {products ? (
-                            products.map((product, index) => (
-                                <PanelAdmin product={product} key={index} />
-                            ))
+                        {selectedOeuvre ? (
+                            filteredProducts.length > 0 ? (
+                                filteredProducts.map((product, index) => (
+                                    <PanelAdmin product={product} key={index} />
+                                ))
+                            ) : (
+                                <p>Aucun produit trouvé pour cette oeuvre.</p>
+                            )
                         ) : (
-                            <p>Chargement en cours...</p>
+                            <p>Sélectionnez une oeuvre pour filtrer les produits.</p>
                         )}
                     </div>
                 </div>
