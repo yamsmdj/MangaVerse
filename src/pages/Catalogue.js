@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CardProduit from "../components/CardProduit";
 
-const Produits = () => {
+const Catalogue = () => {
   const [oeuvres, setOeuvres] = useState([]);
 
   useEffect(() => {
@@ -49,4 +49,4 @@ const Produits = () => {
   );
 };
 
-export default Produits;
+export default Catalogue;
