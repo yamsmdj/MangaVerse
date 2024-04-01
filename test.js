@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/Logo.svg";
 
@@ -12,14 +12,18 @@ const FormLog = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8000/api/users", {
+      const response = await fetch("http://localhost:8000/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
       });
-      window.location.href = "/";
+      if (!response.ok) {
+        throw new Error("Authentication failed");
+      }
+      // Authentification réussie, rediriger l'utilisateur
+      window.location.href = "/"; // Rediriger vers la page d'accueil par exemple
     } catch (error) {
       setError("Authentication failed. Please check your credentials.");
     }
@@ -72,25 +76,25 @@ const FormLog = () => {
     );
   }
 
-  if (currentUrl == "/register") {
+  if (currentUrl === "/register") {
     return (
       <section>
-          <div className="flex flex-col items-center bg-blue-900 bg-opacity-80 p-28 text-center">
-            <div className="">
-              <img src={Logo} alt="logo" />
+        <div className="flex flex-col items-center bg-blue-900 bg-opacity-80 p-28 text-center">
+          <div className="">
+            <img src={Logo} alt="logo" />
+          </div>
+          <h1 className=" text-red-600 font-bold text-xl p-4">Inscription</h1>
+          <div className="">
+            <div>
+              <input
+                type="email"
+                name=""
+                id=""
+                placeholder="email"
+                className="p-2 rounded-lg text-center w-full bg-orange-200"
+              />
             </div>
-            <h1 className=" text-red-600 font-bold text-xl p-4">Incription</h1>
-            <div className="">
-              <div >
-                <input
-                  type="email"
-                  name=""
-                  id=""
-                  placeholder="email"
-                  className="p-2 rounded-lg text-center w-full bg-orange-200"
-                />
-              </div>
-              <div className="flex gap-2 my-4">
+            <div className="flex gap-2 my-4">
               <div className="">
                 <input
                   type="text"
@@ -109,36 +113,36 @@ const FormLog = () => {
                   className="p-2 rounded-lg text-center bg-orange-200"
                 />
               </div>
-              </div>
-              <div className="">
-                <input
-                  type="password"
-                  name=""
-                  id=""
-                  placeholder="Mot de passe"
-                  className="p-2  rounded-lg  text-center w-full bg-orange-200"
-                />
-              </div>
-              <div className="">
-                <input
-                  type="password"
-                  name=""
-                  id=""
-                  placeholder="Confirmation du mot de passe"
-                  className="p-2 my-3  rounded-lg  text-center w-full bg-orange-200"
-                />
-              </div>
-              <button type="submit" className=" p-2 bg-blue-400 rounded-xl">
-                S'inscrire
-              </button>
-              <p className=" text-blue-400 font-bold">
-                Déja un compte ?
-                <NavLink to="/connexion">
-                  <strong className="text-red-700">Connectez-vous</strong>
-                </NavLink>
-              </p>
             </div>
+            <div className="">
+              <input
+                type="password"
+                name=""
+                id=""
+                placeholder="Mot de passe"
+                className="p-2  rounded-lg  text-center w-full bg-orange-200"
+              />
+            </div>
+            <div className="">
+              <input
+                type="password"
+                name=""
+                id=""
+                placeholder="Confirmation du mot de passe"
+                className="p-2 my-3  rounded-lg  text-center w-full bg-orange-200"
+              />
+            </div>
+            <button type="submit" className=" p-2 bg-blue-400 rounded-xl">
+              S'inscrire
+            </button>
+            <p className=" text-blue-400 font-bold">
+              Déjà un compte ?
+              <NavLink to="/connexion">
+                <strong className="text-red-700">Connectez-vous</strong>
+              </NavLink>
+            </p>
           </div>
+        </div>
       </section>
     );
   }
