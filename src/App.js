@@ -22,7 +22,7 @@ function App() {
           <Route path="/connexion" element={<Login />}></Route>
           <Route path="/register" element={<Login />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/dashboard/update" element={<UpdateAdmin />}></Route>
+          <Route path="/dashboard/update/:id" element={<UpdateAdmin />}></Route>
 
           <Route path="*" element={<Accueil />} />
         </Routes>
