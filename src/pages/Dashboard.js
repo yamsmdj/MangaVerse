@@ -4,7 +4,8 @@ import PanelAdmin from "../components/PanelAdmin";
 import NavAdmin from "../components/wrapper/NavAdmin";
 import OeuvresAdmin from "../components/OeuvresAdmin";
 import UpdateDash from "../components/UpdateDash";
-import { useLocation, useParams } from "react-router-dom"; // Import de useLocation pour récupérer les données de l'état
+import create from "../assets/create.svg";
+import { NavLink } from "react-router-dom"; import { useLocation, useParams } from "react-router-dom"; // Import de useLocation pour récupérer les données de l'état
 
 const Dashboard = () => {
     const [products, setProducts] = useState([]);
@@ -22,7 +23,10 @@ const Dashboard = () => {
                 setProducts(res.data);
             })
             .catch((error) => {
-                console.error("Une erreur s'est produite lors de la récupération des produits : ", error);
+                console.error(
+                    "Une erreur s'est produite lors de la récupération des produits : ",
+                    error
+                );
             });
 
         // Récupérer les oeuvres
@@ -32,7 +36,10 @@ const Dashboard = () => {
                 setOeuvres(res.data);
             })
             .catch((error) => {
-                console.error("Une erreur s'est produite lors de la récupération des oeuvres : ", error);
+                console.error(
+                    "Une erreur s'est produite lors de la récupération des oeuvres : ",
+                    error
+                );
             });
 
         // Vérifier si un message flash est passé en tant que state depuis UpdateAdmin
@@ -96,6 +103,14 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className="bg-white bg-opacity-10 w-3/4 flex flex-col justify-start items-center my-20 text-white">
+                        <div className="flex justify-end w-full mt-6 mr-28">
+                            <NavLink to="/dashboard/create">
+                                <div className="flex p-2 items-center bg-green-500">
+                                    <img src={create} alt="logo_create" />
+                                    Ajouter un produit
+                                </div>
+                            </NavLink>
+                        </div>
                         {flashMessage && (
                             <div className="bg-green-500 text-white px-4 py-2 mt-4">
                                 {flashMessage}
