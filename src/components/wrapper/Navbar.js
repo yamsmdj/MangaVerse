@@ -5,6 +5,7 @@ import Login from "../../assets/login.svg";
 import Search from "../../assets/search.svg";
 import Shop from "../../assets/shop.svg";
 import Logo from "../../assets/Logo.svg";
+import Logout from "../../assets/logout.svg";
 
 const Navbar = () => {
 
@@ -45,16 +46,16 @@ const Navbar = () => {
               <img src={Shop} alt="boutique" />
             </NavLink>
             {
-              localStorage.getItem('token') ? 
-              <NavLink onClick={logout} to="/connexion" className="svg-container">
-              deconnexion
-            </NavLink>
-              : 
-              <NavLink to="/connexion" className="svg-container">
-              <img src={Login} alt="connexion" />
-            </NavLink>
+              localStorage.getItem('token') ?
+                <NavLink onClick={logout} to="/connexion" className="svg-container">
+                  <img src={Logout} alt="deconnexion" />
+                </NavLink>
+                :
+                <NavLink to="/connexion" className="svg-container">
+                  <img src={Login} alt="connexion" />
+                </NavLink>
             }
-           
+
           </div>
           <div className="hamburger sm:hidden">
             <BurgerMenu></BurgerMenu>

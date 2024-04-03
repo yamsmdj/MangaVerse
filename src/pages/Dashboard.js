@@ -4,12 +4,15 @@ import PanelAdmin from "../components/PanelAdmin";
 import NavAdmin from "../components/wrapper/NavAdmin";
 import OeuvresAdmin from "../components/OeuvresAdmin";
 import UpdateDash from "../components/UpdateDash";
-
+import { useLocation, useParams } from "react-router-dom"; // Import de useLocation pour récupérer les données de l'état
 
 const Dashboard = () => {
     const [products, setProducts] = useState([]);
     const [oeuvres, setOeuvres] = useState([]);
     const [selectedOeuvre, setSelectedOeuvre] = useState(null);
+    const [flashMessage, setFlashMessage] = useState(""); // Nouvelle propriété d'état pour le message flash
+    const location = useLocation();
+    const { id } = useParams(); // Utilisation de useLocation pour récupérer les données de l'état
 
     useEffect(() => {
         // Récupérer les produits
@@ -31,7 +34,34 @@ const Dashboard = () => {
             .catch((error) => {
                 console.error("Une erreur s'est produite lors de la récupération des oeuvres : ", error);
             });
+
+        // Vérifier si un message flash est passé en tant que state depuis UpdateAdmin
+        if (location.state && location.state.flashMessage) {
+            setFlashMessage(location.state.flashMessage);
+            const timeout = setTimeout(() => {
+                setFlashMessage("");
+            }, 5000);
+            return () => clearTimeout(timeout);
+
+        }
     }, []);
+
+    const handleDelete = (productId) => {
+        axios.delete(`http://localhost:8000/api/products/${productId}`)
+            .then(response => {
+                setProducts(products.filter(product => product.id !== productId));
+                setFlashMessage("Le produit a été supprimé avec succès !");
+                const timeout = setTimeout(() => {
+                    setFlashMessage("");
+                }, 5000);
+                return () => clearTimeout(timeout);
+            })
+            .catch(error => {
+                console.error("Une erreur s'est produite lors de la suppression du produit : ", error);
+                // Afficher un message d'erreur si la suppression échoue
+                setFlashMessage("Une erreur s'est produite lors de la suppression du produit.");
+            });
+    };
 
     const handleSelectOeuvre = (oeuvre) => {
         setSelectedOeuvre(oeuvre);
@@ -42,9 +72,6 @@ const Dashboard = () => {
             return products.filter((product) => product.oeuvres.id === selectedOeuvre.id);
         }
     })();
-
-
-
 
     return (
         <div className="w-full flex flex-row bg-bleuDark">
@@ -69,6 +96,11 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className="bg-white bg-opacity-10 w-3/4 flex flex-col justify-start items-center my-20 text-white">
+                        {flashMessage && (
+                            <div className="bg-green-500 text-white px-4 py-2 mt-4">
+                                {flashMessage}
+                            </div>
+                        )}
                         <div className="bg-nav opacity-100 w-10/12 mt-10 mb-1 py-1">
                             <ul className="grid grid-cols-8 text-center">
                                 <li>Categorie</li>
@@ -84,7 +116,7 @@ const Dashboard = () => {
                         {selectedOeuvre ? (
                             filteredProducts.length > 0 ? (
                                 filteredProducts.map((product, index) => (
-                                    <PanelAdmin product={product} key={index} />
+                                    <PanelAdmin product={product} key={index} onDelete={() => handleDelete(product.id)} />
                                 ))
                             ) : (
                                 <p>Aucun produit trouvé pour cette oeuvre.</p>
@@ -92,7 +124,6 @@ const Dashboard = () => {
                         ) : (
                             <p>Sélectionnez une oeuvre pour filtrer les produits.</p>
                         )}
-                        {/* <UpdateDash product={products} /> */}
 
                     </div>
                 </div>
