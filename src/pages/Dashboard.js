@@ -126,11 +126,11 @@ const Dashboard = () => {
               </div>
             )}
             <div className="opacity-100 w-10/12 mt-10 mb-1 py-1">
-              <div className="flex justify-end w-full mb-2">
+              <div className="flex justify-between items-center w-full mb-2 px-3 bg-nav">
+                <h3>Liste de produits</h3>
                 <NavLink to="/dashboard/create">
-                  <div className="flex p-2 gap-3 items-center rounded-md bg-green-700">
-                    <img src={create} alt="logo_create" />
-                    Ajouter un produit
+                  <div className="flex flex-row-reverse pr-7 gap-1 items-center rounded-md">
+                    <img src={createV} alt="logo_create" />
                   </div>
                 </NavLink>
               </div>
