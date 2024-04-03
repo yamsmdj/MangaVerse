@@ -5,9 +5,10 @@ import { useParams } from "react-router-dom";
 
 const UpdateAdmin = () => {
     const [products, setProducts] = useState([]);
+    const [name, setName] = useState("");
+    const [prix, setPrix] = useState("");
+    const [quantiter, setQuantiter] = useState("");
     const [filteredProducts, setFilteredProducts] = useState([]);
-    const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState(""); // Ajout de l'état pour la catégorie sélectionnée
     const { id } = useParams();
 
     useEffect(() => {
@@ -22,17 +23,7 @@ const UpdateAdmin = () => {
                     error
                 );
             });
-        axios
-            .get(`http://localhost:8000/api/categorie`)
-            .then((res) => {
-                setCategories(res.data);
-            })
-            .catch((error) => {
-                console.error(
-                    "Une erreur s'est produite lors de la récupération des catégories : ",
-                    error
-                );
-            });
+
     }, []);
 
     useEffect(() => {
@@ -46,8 +37,18 @@ const UpdateAdmin = () => {
         (product) => product.id === parseInt(id)
     );
 
-    const handleCategoryChange = (event) => {
-        setSelectedCategory(event.target.value);
+    const handleValidation = () => {
+        axios.patch(`http://localhost:8000/api/products/${id}`, {
+            name: name,
+            prix: prix,
+            quantiter: quantiter
+        })
+            .then((res) => {
+                console.log("Mise à jour réussie !");
+            })
+            .catch((error) => {
+                console.error("Erreur lors de la mise à jour : ", error);
+            });
     };
 
     return (
@@ -60,51 +61,43 @@ const UpdateAdmin = () => {
                 <div className="bg-white bg-opacity-10 w-1/2 flex justify-center items-center my-20 text-white">
                     <div className="w-full flex flex-col justify-center items-center my-10">
                         {selectedProduct && (
-                            <div className="w-10/12">
-                                <div className="bg-blackOP30">
-                                    <input type="text" defaultValue={selectedProduct.oeuvres?.name} placeholder="Oeuvres :" className="bg-transparent w-full" />
-                                </div>
-                                <div id="oui" className="flex flex-row w-full justify-between">
-                                    <img
-                                        src={`/img/manga/${selectedProduct?.oeuvres?.name.replace(
-                                            /\s+/g,
-                                            ""
-                                        )}/${selectedProduct?.picture}`}
-                                        alt="One piece"
-                                        className="h-48 mt-1"
-                                    />
-                                    <div className="w-full ms-1 flex flex-col justify-between text-center">
-                                        <div className="bg-blackOP30 my-1 text-center">
-                                            <input type="text" defaultValue={selectedProduct.name} placeholder="Nom :" className="bg-transparent w-full " />
-                                        </div>
-                                        <div className="bg-blackOP30 my-1 text-center">
-                                            <input type="text" defaultValue={selectedProduct.prix} placeholder="Prix :" className="bg-transparent w-full" />
-                                        </div>
-                                        <div className="bg-blackOP30 my-1">
-                                            <input type="text" defaultValue={selectedProduct.quantiter} placeholder="Quantité :" className="bg-transparent w-full" />
-                                        </div>
-                                        <div className="bg-blackOP30 flex flex-row">
-                                            <select value={selectedCategory} onChange={handleCategoryChange} className=" bg-transparent ">
-                                                <option value="" className="bg-transparent">Sélectionnez une catégorie</option>
-                                                {categories.map((category) => (
-                                                    <option key={category.id} value={category.name}>
-                                                        {category.name}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                            <input type="text" placeholder="Type :" className="bg-transparent w-2/3  my-1" />
-                                        </div>
-                                        <div className="bg-blackOP30 my-1">
-                                            <input type="text" placeholder="Genre :" className="bg-transparent w-full" />
+                            <div className="w-10/12 flex flex-col justify-center items-center">
+                                <form>
+                                    <div className="bg-blackOP30 w-full">
+                                        <input type="text" name="name" defaultValue={selectedProduct.oeuvres?.name} placeholder="Oeuvres :" className="bg-transparent w-full" />
+                                    </div>
+                                    <div id="oui" className="flex flex-row w-full justify-between">
+                                        <img
+                                            src={`/img/manga/${selectedProduct?.oeuvres?.name.replace(
+                                                /\s+/g,
+                                                ""
+                                            )}/${selectedProduct?.picture}`}
+                                            alt="One piece"
+                                            className="h-48 mt-1"
+                                        />
+                                        <div className="w-full ms-1 flex flex-col justify-between text-center">
+                                            <div className="bg-blackOP30 my-1 text-center">
+                                                <input type="text" name="name" defaultValue={selectedProduct.name} className="bg-transparent w-full " />
+                                            </div>
+                                            <div className="bg-blackOP30 my-1 text-center">
+                                                <input type="value" name="prix" defaultValue={selectedProduct.prix} className="bg-transparent w-full" />
+                                            </div>
+                                            <div className="bg-blackOP30 my-1">
+                                                <input type="value" name="quantiter" defaultValue={selectedProduct.quantiter} className="bg-transparent w-full" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <div className=" w-1/2 flex justify-between mt-5">
+                                        <button type="button" className=" bg-red-700 rounded-md px-10 py-2 ">Annuler</button>
+                                        <button type="button" className=" bg-green-700 rounded-md px-10 py-2" onClick={handleValidation}>Valider</button>
+                                    </div>
+                                </form>
                             </div>
                         )}
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 
