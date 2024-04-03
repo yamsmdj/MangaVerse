@@ -43,6 +43,7 @@ const UpdateAdmin = () => {
       })
       .then((res) => {
         console.log("Mise à jour réussie !");
+        window.location.href = "/dashboard";
       })
       .catch((error) => {
         console.error("Erreur lors de la mise à jour : ", error);
@@ -58,24 +59,21 @@ const UpdateAdmin = () => {
             Produits
           </h1>
         </div>
-        <div className="bg-white bg-opacity-10 w-1/2 flex justify-center items-center my-20 text-white">
+        <div className="bg-white bg-opacity-10 w-1/2 flex justify-center items-center my-20 text-white  rounded-full">
           <div className="w-full flex flex-col justify-center items-center my-10">
             {selectedProduct && (
               <div className="w-10/12 flex flex-col justify-center items-center">
                 <form>
-                  <div className="bg-blackOP30 w-full">
+                  <div>
                     <input
                       type="text"
                       name="name"
                       defaultValue={selectedProduct.oeuvres?.name}
                       placeholder="Oeuvres :"
-                      className="bg-transparent w-full"
+                      className="bg-transparent w-full text-center py-2"
                     />
                   </div>
-                  <div
-                    id="oui"
-                    className="flex flex-row w-full justify-between"
-                  >
+                  <div className="flex flex-row w-full justify-between">
                     <img
                       src={`/img/manga/${selectedProduct?.oeuvres?.name.replace(
                         /\s+/g,
@@ -85,18 +83,18 @@ const UpdateAdmin = () => {
                       className="h-48 mt-1"
                     />
                     <div className="w-full ms-1 flex flex-col justify-between text-center">
-                      <div className="bg-blackOP30 my-1 text-center">
+                      <div className="bg-blackOP30 text-center">
                         <input
                           type="text"
                           name="name"
-                          placeholder={selectedProduct.name}
+                          defaultValue={selectedProduct.name}
                           className="bg-transparent w-full "
                           onChange={(e) => setName(e.target.value)}
                         />
                       </div>
-                      <div className="bg-blackOP30 my-1 text-center">
+                      <div className="bg-blackOP30 my-2 text-center">
                         <input
-                          type="number"
+                          type="value"
                           name="prix"
                           defaultValue={selectedProduct.prix}
                           className="bg-transparent w-full"
@@ -105,11 +103,13 @@ const UpdateAdmin = () => {
                       </div>
                       <div className="bg-blackOP30 my-1">
                         <input
-                          type="value"
+                          type="number"
                           name="quantiter"
                           defaultValue={selectedProduct.quantiter}
                           className="bg-transparent w-full"
-                          onChange={(e) => setQuantiter(e.target.value)}
+                          onChange={(e) =>
+                            setQuantiter(parseInt(e.target.value))
+                          }
                         />
                       </div>
                     </div>
