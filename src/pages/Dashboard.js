@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import PanelAdmin from "../components/PanelAdmin";
 import NavAdmin from "../components/wrapper/NavAdmin";
 import OeuvresAdmin from "../components/OeuvresAdmin";
-import UpdateDash from "../components/UpdateDash";
+import createV from "../assets/createGreen.svg";
 import create from "../assets/create.svg";
 import { NavLink } from "react-router-dom"; import { useLocation, useParams } from "react-router-dom"; // Import de useLocation pour récupérer les données de l'état
 
@@ -76,7 +76,7 @@ const Dashboard = () => {
 
     const filteredProducts = (() => {
         if (selectedOeuvre) {
-            return products.filter((product) => product.oeuvres.id === selectedOeuvre.id);
+            return products.filter((product) => product.oeuvres?.id === selectedOeuvre.id);
         }
     })();
 
@@ -89,9 +89,9 @@ const Dashboard = () => {
                 </div>
                 <div className="flex justify-between w-10/12">
                     <div className="bg-white h-fit bg-opacity-10 w-1/5 flex flex-col my-20  items-center">
-                        <div className="bg-nav opacity-100 w-10/12 mt-10 mb-1 py-1 text-white text-center">Oeuvres</div>
+                        <div className="bg-nav opacity-100 w-10/12 mt-10 mb-1 py-1 text-white flex items-center justify-around text-center">Nouvelle oeuvres <img src={createV} alt="" /></div>
                         <div className="w-full flex flex-col items-center mb-10">
-                            {oeuvres ? (
+                          {oeuvres ? (
                                 oeuvres.map((oeuvre, index) => (
                                     <div key={index} onClick={() => handleSelectOeuvre(oeuvre)} className="cursor-pointer w-10/12">
                                         <OeuvresAdmin oeuvre={oeuvre} />
@@ -99,13 +99,13 @@ const Dashboard = () => {
                                 ))
                             ) : (
                                 <p>Chargement en cours...</p>
-                            )}
+                          )}
                         </div>
                     </div>
                     <div className="bg-white bg-opacity-10 w-3/4 flex flex-col justify-start items-center my-20 text-white">
                         <div className="flex justify-end w-full mt-6 mr-28">
                             <NavLink to="/dashboard/create">
-                                <div className="flex p-2 items-center bg-green-500">
+                                <div className="flex p-2 gap-3 items-center bg-green-500">
                                     <img src={create} alt="logo_create" />
                                     Ajouter un produit
                                 </div>
