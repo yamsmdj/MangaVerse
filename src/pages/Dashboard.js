@@ -103,19 +103,20 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className="bg-white bg-opacity-10 w-3/4 flex flex-col justify-start items-center my-20 text-white">
-                        <div className="flex justify-end w-full mt-6 mr-28">
-                            <NavLink to="/dashboard/create">
-                                <div className="flex p-2 items-center bg-green-500">
-                                    <img src={create} alt="logo_create" />
-                                    Ajouter un produit
-                                </div>
-                            </NavLink>
-                        </div>
+
                         {flashMessage && (
                             <div className="bg-green-500 text-white px-4 py-2 mt-4">
                                 {flashMessage}
                             </div>
                         )}
+                        <div className="flex justify-end w-full mt-6 mr-28">
+                            <NavLink to="/dashboard/create">
+                                <div className="flex p-2 items-center rounded-md bg-green-500">
+                                    <img src={create} alt="logo_create" />
+                                    Ajouter un produit
+                                </div>
+                            </NavLink>
+                        </div>
                         <div className="bg-nav opacity-100 w-10/12 mt-10 mb-1 py-1">
                             <ul className="grid grid-cols-8 text-center">
                                 <li>Categorie</li>
