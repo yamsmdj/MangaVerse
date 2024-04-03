@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import PanelAdmin from "../components/PanelAdmin";
 import NavAdmin from "../components/wrapper/NavAdmin";
 import OeuvresAdmin from "../components/OeuvresAdmin";
+import UpdateDash from "../components/UpdateDash";
+
 
 const Dashboard = () => {
     const [products, setProducts] = useState([]);
@@ -90,6 +92,8 @@ const Dashboard = () => {
                         ) : (
                             <p>Sélectionnez une oeuvre pour filtrer les produits.</p>
                         )}
+                        {/* <UpdateDash product={products} /> */}
+
                     </div>
                 </div>
             </div>
