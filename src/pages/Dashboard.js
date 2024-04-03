@@ -102,6 +102,7 @@ const Dashboard = () => {
                           )}
                         </div>
                     </div>
+
                     <div className="bg-white bg-opacity-10 w-3/4 flex flex-col justify-start items-center my-20 text-white">
                         <div className="flex justify-end w-full mt-6 mr-28">
                             <NavLink to="/dashboard/create">
@@ -116,8 +117,16 @@ const Dashboard = () => {
                                 {flashMessage}
                             </div>
                         )}
-                        <div className="bg-nav opacity-100 w-10/12 mt-10 mb-1 py-1">
-                            <ul className="grid grid-cols-8 text-center">
+                        <div className="opacity-100 w-10/12 mt-10 mb-1 py-1">
+                            <div className="flex justify-end w-full mb-2">
+                                <NavLink to="/dashboard/create">
+                                    <div className="flex p-2 gap-3 items-center rounded-md bg-green-700">
+                                        <img src={create} alt="logo_create" />
+                                        Ajouter un produit
+                                    </div>
+                                </NavLink>
+                            </div>
+                            <ul className="bg-nav grid grid-cols-8 text-center p-2">
                                 <li>Categorie</li>
                                 <li>Oeuvre</li>
                                 <li>Nom</li>
