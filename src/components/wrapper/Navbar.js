@@ -7,6 +7,13 @@ import Shop from "../../assets/shop.svg";
 import Logo from "../../assets/Logo.svg";
 
 const Navbar = () => {
+
+  console.log(localStorage);
+  const logout = () => {
+    localStorage.removeItem('token');
+    window.location.href = "/connexion";
+  }
+
   return (
     <div>
       <nav className=" bg-nav w-full " id="ancre-up">
@@ -37,9 +44,17 @@ const Navbar = () => {
             <NavLink to="/dashboard" className="svg-container">
               <img src={Shop} alt="boutique" />
             </NavLink>
-            <NavLink to="/connexion" className="svg-container">
+            {
+              localStorage.getItem('token') ? 
+              <NavLink onClick={logout} to="/connexion" className="svg-container">
+              deconnexion
+            </NavLink>
+              : 
+              <NavLink to="/connexion" className="svg-container">
               <img src={Login} alt="connexion" />
             </NavLink>
+            }
+           
           </div>
           <div className="hamburger sm:hidden">
             <BurgerMenu></BurgerMenu>

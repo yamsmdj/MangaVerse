@@ -7,7 +7,11 @@ const Catalogue = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/oeuvres")
+      .get("http://localhost:8000/api/oeuvres", {
+        headers: {
+          Authorization: `bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
         setOeuvres(res.data);
         // setProduits(res.data["hydra:member"]);
