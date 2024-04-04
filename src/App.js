@@ -7,8 +7,9 @@ import MonProduit from "./pages/MonProduit";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Catalogue from "./pages/Catalogue";
-import UpdateAdmin from "./pages/UpdateAdmin";
 import CreateAdmin from "./pages/CreateAdmin";
+import UpdateOeuvre from "./pages/UpdateOeuvre";
+import UpdateProduct from "./pages/UpdateProduct";
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
           <Route path="/connexion" element={<Login />}></Route>
           <Route path="/register" element={<Login />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/dashboard/update/:id" element={<UpdateAdmin />}></Route>
+          <Route path="/dashboard/update/product/:id" element={<UpdateProduct />}></Route>
+          <Route path="/dashboard/update/oeuvre/:id" element={<UpdateOeuvre />}></Route>
           <Route path="/dashboard/create/" element={<CreateAdmin />}></Route>
 
           <Route path="*" element={<Accueil />} />
