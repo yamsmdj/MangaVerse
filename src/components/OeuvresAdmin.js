@@ -10,12 +10,12 @@ const OeuvresAdmin = ({ oeuvre }) => {
         <li className="flex justify-between items-center">
           {oeuvre.name}
           <div className="flex w-12">
-          <NavLink to={`/dashboard/update/${oeuvre.id}`}>
-            <img src={Update} alt="logoUpdate"  />
-          </NavLink>
-          <NavLink to={`/dashboard/delete/${oeuvre.id}`}>
-            <img src={Delete} alt="logoUpdate"  />
-          </NavLink>
+            <NavLink to={`/dashboard/update/oeuvre/${oeuvre.id}`}>
+              <img src={Update} alt="logoUpdate" />
+            </NavLink>
+            <NavLink to={`/dashboard/delete/${oeuvre.id}`}>
+              <img src={Delete} alt="logoUpdate" />
+            </NavLink>
           </div>
         </li>
       </ul>

@@ -31,7 +31,7 @@ const PanelAdmin = ({ product, onDelete }) => {
                 <li className="text-center">{product.oeuvres?.rating || '-'}/10</li>
                 <li className="text-center">{product.prix}€</li>
                 <li className="text-center flex justify-center">
-                    <NavLink to={`/dashboard/update/${product.id}`} className="svg-container">
+                    <NavLink to={`/dashboard/update/product/${product.id}`} className="svg-container">
                         <img src={Update} alt="boutique" className='w-8' />
                     </NavLink>
                 </li>

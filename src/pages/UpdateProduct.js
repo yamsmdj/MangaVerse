@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import NavAdmin from "../components/wrapper/NavAdmin";
 import { useParams, useNavigate } from "react-router-dom";
 
-const UpdateAdmin = () => {
+const UpdateProduct = () => {
   const [products, setProducts] = useState([]);
   const [name, setName] = useState("");
   const [prix, setPrix] = useState("");
@@ -107,4 +107,4 @@ const UpdateAdmin = () => {
   );
 };
 
-export default UpdateAdmin;
+export default UpdateProduct;
