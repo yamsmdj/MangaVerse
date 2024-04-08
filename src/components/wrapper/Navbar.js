@@ -47,9 +47,14 @@ const Navbar = () => {
             </NavLink>
             {
               localStorage.getItem('token') ?
+              <div className="">
+                <NavLink onClick={logout} to="#" className="svg-container">
+                  <img src={Login} alt="mon profil" />
+                </NavLink>
                 <NavLink onClick={logout} to="/connexion" className="svg-container">
                   <img src={Logout} alt="deconnexion" />
                 </NavLink>
+                </div>
                 :
                 <NavLink to="/connexion" className="svg-container">
                   <img src={Login} alt="connexion" />
