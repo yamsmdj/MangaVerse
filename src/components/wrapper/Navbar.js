@@ -11,6 +11,7 @@ import axios from "axios";
 const Navbar = () => {
 
   const [oeuvres, setOeuvres] = useState('');
+  const [users, setUsers] = useState([]);
   console.log(localStorage);
   const logout = () => {
     localStorage.removeItem('token');
@@ -25,7 +26,7 @@ const Navbar = () => {
         },
       })
       .then((res) => {
-        setOeuvres(res.data);
+        setUsers(res.data);
         // setProduits(res.data["hydra:member"]);
         console.log(res);
       })
@@ -67,7 +68,11 @@ const Navbar = () => {
             <NavLink to="/dashboard" className="svg-container">
               <img src={Shop} alt="boutique" />
             </NavLink>
-            {
+
+            {users.map((user) => (
+            user.roles === 'ROLE_ADMIN' ? <p>dashboard</p> : null))}
+
+
               localStorage.getItem('token') ?
               <>
                 <NavLink onClick={logout} to="#" className="svg-container">
@@ -81,8 +86,6 @@ const Navbar = () => {
                 <NavLink to="/connexion" className="svg-container">
                   <img src={Login} alt="connexion" />
                 </NavLink>
-            }
-
           </div>
           <div className="hamburger sm:hidden">
             <BurgerMenu></BurgerMenu>
