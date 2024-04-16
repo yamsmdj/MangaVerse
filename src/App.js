@@ -5,11 +5,11 @@ import Wrapper from "./components/wrapper";
 import Contact from "./pages/Contact";
 import MonProduit from "./pages/MonProduit";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Catalogue from "./pages/Catalogue";
-import CreateAdmin from "./pages/CreateAdmin";
-import UpdateOeuvre from "./pages/UpdateOeuvre";
-import UpdateProduct from "./pages/UpdateProduct";
+import CreateAdmin from "./pages/Dashboard/CreateAdmin";
+import UpdateOeuvre from "./pages/Dashboard/UpdateOeuvre";
+import UpdateProduct from "./pages/Dashboard/UpdateProduct";
 import Monprofil from "./pages/Monprofil";
 
 

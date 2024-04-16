@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import PanelAdmin from "../components/PanelAdmin";
-import NavAdmin from "../components/wrapper/NavAdmin";
-import OeuvresAdmin from "../components/OeuvresAdmin";
-import createV from "../assets/createGreen.svg";
-import create from "../assets/create.svg";
+import PanelAdmin from "../../components/admin/PanelAdmin";
+import NavAdmin from "../../components/wrapper/NavAdmin";
+import OeuvresAdmin from "../../components/admin/OeuvresAdmin";
+import createV from "../../assets/createGreen.svg";
+import create from "../../assets/create.svg";
 import { NavLink } from "react-router-dom";
 import { useLocation, useParams } from "react-router-dom"; // Import de useLocation pour récupérer les données de l'état
 
