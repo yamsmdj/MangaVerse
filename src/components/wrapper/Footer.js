@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/Logo.svg";
 
 const Footer = () => {
+  const [date, setDate] = useState(new Date())
+
   return (
     <footer>
       <nav class="bg-nav h-16 w-full ">
@@ -25,7 +27,7 @@ const Footer = () => {
             </ul>
           </div>
           <p class="text-gray-500">
-            Copyright ©2024 All rights reserved |{" "}
+            Copyright {date.getFullYear()} All rights reserved |{" "}
             <a href="" class="hovertext-lavande">
               Condition de confidentialité
             </a>

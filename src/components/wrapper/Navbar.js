@@ -73,7 +73,7 @@ const Navbar = () => {
             user.roles === 'ROLE_ADMIN' ? <p>dashboard</p> : null))}
 
 
-              localStorage.getItem('token') ?
+             { localStorage.getItem('token') ?
               <>
                 <NavLink onClick={logout} to="#" className="svg-container">
                   <img src={Login} alt="profil" />
@@ -85,7 +85,7 @@ const Navbar = () => {
                 :
                 <NavLink to="/connexion" className="svg-container">
                   <img src={Login} alt="connexion" />
-                </NavLink>
+                </NavLink>}
           </div>
           <div className="hamburger sm:hidden">
             <BurgerMenu></BurgerMenu>
