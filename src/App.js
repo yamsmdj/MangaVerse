@@ -27,7 +27,6 @@ function App() {
           <Route path="/dashboard/update/product/:id" element={<UpdateProduct />}></Route>
           <Route path="/dashboard/update/oeuvre/:id" element={<UpdateOeuvre />}></Route>
           <Route path="/dashboard/create/" element={<CreateAdmin />}></Route>
-
           <Route path="*" element={<Accueil />} />
         </Routes>
       </Wrapper>
