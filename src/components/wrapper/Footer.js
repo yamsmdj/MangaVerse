@@ -26,9 +26,9 @@ const Footer = () => {
               </a>
             </ul>
           </div>
-          <p class="text-gray-500">
+          <p className="text-gray-500">
             Copyright {date.getFullYear()} All rights reserved |{" "}
-            <a href="" class="hovertext-lavande">
+            <a href="" className="hovertext-lavande">
               Condition de confidentialité
             </a>
           </p>

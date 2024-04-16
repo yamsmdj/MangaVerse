@@ -20,10 +20,10 @@ const Navbar = () => {
         const token = localStorage.getItem("token");
         if (token) {
           const decodedToken = jwtDecode(token);
-          // console.log(decodedToken);
+          console.log(decodedToken);
           const roles = decodedToken.roles;
           setRoles(roles);
-          // console.log(roles);
+          console.log(roles);
         }
       })
       .catch((error) => {
